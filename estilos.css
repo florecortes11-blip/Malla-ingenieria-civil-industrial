@@ -1,1 +1,108 @@
+:root {
+    --bg-color: #fff5f7;
+    --card-bg: #ffffff;
+    --text-color: #4a4a4a;
+    --primary-pink: #fce4ec; /* Rosa muy claro */
+    --accent-pink: #f06292;  /* Rosa medio */
+    --approved-pink: #c2185b; /* Rosa oscuro para aprobados */
+    --border-color: #f8bbd0;
+    --shadow: 0 4px 6px rgba(0,0,0,0.05);
+}
 
+body {
+    font-family: 'Poppins', sans-serif;
+    background-color: var(--bg-color);
+    color: var(--text-color);
+    margin: 0;
+    padding: 20px;
+}
+
+header {
+    text-align: center;
+    margin-bottom: 40px;
+}
+
+h1 { color: var(--approved-pink); margin-bottom: 5px; }
+
+.stats {
+    font-weight: 600;
+    background: white;
+    display: inline-block;
+    padding: 10px 20px;
+    border-radius: 20px;
+    box-shadow: var(--shadow);
+    color: var(--approved-pink);
+}
+
+/* Contenedor de la Malla */
+.malla-grid {
+    display: flex;
+    gap: 20px;
+    overflow-x: auto; /* Permite scroll horizontal en pantallas pequeñas */
+    padding-bottom: 20px;
+    align-items: flex-start;
+}
+
+/* Columnas de Semestres */
+.semester-column {
+    min-width: 220px;
+    flex: 1;
+    background: rgba(255, 255, 255, 0.5);
+    border-radius: 12px;
+    padding: 10px;
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+}
+
+.semester-column h3 {
+    text-align: center;
+    font-size: 0.9rem;
+    color: var(--accent-pink);
+    border-bottom: 2px solid var(--primary-pink);
+    padding-bottom: 8px;
+    margin-top: 5px;
+}
+
+/* Tarjetas de Ramos */
+.course-card {
+    background: var(--card-bg);
+    border: 2px solid var(--primary-pink);
+    border-radius: 10px;
+    padding: 15px;
+    font-size: 0.85rem;
+    text-align: center;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    box-shadow: var(--shadow);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    min-height: 60px;
+    font-weight: 400;
+}
+
+.course-card:hover {
+    transform: translateY(-3px);
+    border-color: var(--accent-pink);
+}
+
+/* Estado Aprobado */
+.course-card.approved {
+    background-color: var(--approved-pink);
+    color: white;
+    text-decoration: line-through;
+    border-color: #880e4f;
+}
+
+/* Responsividad */
+@media (max-width: 768px) {
+    .malla-grid {
+        flex-direction: column;
+        align-items: center;
+    }
+    .semester-column {
+        width: 100%;
+        max-width: 400px;
+    }
+}
